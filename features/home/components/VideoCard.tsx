@@ -12,7 +12,7 @@ interface Props {
 export default function VideoCard({ title, img, link }: Props) {
   return (
     <Link href={link}>
-      <Card className={`shadow-lg pt-0`}>
+      <Card className={`shadow-lg pt-0 h-96`}>
         <Image
           className="bg-cover rounded-t-xl"
           src={img}

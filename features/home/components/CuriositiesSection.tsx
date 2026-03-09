@@ -44,7 +44,7 @@ export default function CuriositySection() {
     <section className="py-22 px-8 text-center flex flex-col gap-y-4 bg-muted">
       {title}
       <p className="text-solar-dark/60">{description}</p>
-      <div className="flex flex-col gap-y-6">
+      <div className="lg:grid lg:grid-cols-3 lg:gap-4  flex flex-col gap-y-6">
         <CuriosityCard
           title={card1Title}
           description={card1Description}

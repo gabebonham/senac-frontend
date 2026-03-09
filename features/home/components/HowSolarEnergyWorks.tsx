@@ -39,7 +39,7 @@ export default function HowSolarEnergyWorks() {
     <section className="py-22 px-8 text-center flex flex-col gap-y-4 bg-background">
       {title}
       <p className="text-solar-dark/60">{description}</p>
-      <div className="flex flex-col gap-y-6">
+      <div className="lg:gap-x-4 lg:flex-row lg:items-center flex flex-col gap-y-6">
         <ExplanationCard
           title={card1Title}
           description={card1Description}

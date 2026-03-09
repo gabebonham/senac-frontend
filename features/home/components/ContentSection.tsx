@@ -24,11 +24,11 @@ export default function ContentSection() {
     <section className="py-22 px-8 text-center flex flex-col gap-y-4">
       {title}
       <p className="text-solar-dark/60">{description}</p>
-      <div className="flex flex-col gap-y-6">
-        <h1 className="font-bold text-xl flex items-center gap-x-2 mt-10">
-          <Play className="text-sun" />
-          Vídeos
-        </h1>
+      <h1 className="font-bold text-xl flex items-center gap-x-2 mt-10">
+        <Play className="text-sun" />
+        Vídeos
+      </h1>
+      <div className="lg:grid lg:grid-cols-3 lg:gap-x-4 flex flex-col gap-y-6">
         <VideoCard img={video1Img} link={video1Link} title={video1Title} />
         <VideoCard img={video2Img} link={video2Link} title={video2Title} />
         <VideoCard img={video3Img} link={video3Link} title={video3Title} />

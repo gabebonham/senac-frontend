@@ -17,11 +17,11 @@ export default function NewsSection() {
   const news3platform = "Gov.br";
   return (
     <section className="pb-22 px-8 text-center flex flex-col gap-y-4">
-      <div className="flex flex-col gap-y-6">
-        <h1 className="font-bold text-xl flex items-center gap-x-2 mt-10">
-          <FileText className="text-solar-sky" />
-          Notícias
-        </h1>
+      <h1 className="font-bold text-xl flex items-center gap-x-2 mt-10">
+        <FileText className="text-solar-sky" />
+        Notícias
+      </h1>
+      <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col gap-y-6">
         <NewsCard
           platform={news1platform}
           link={news1Link}

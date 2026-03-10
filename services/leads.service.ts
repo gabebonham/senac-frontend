@@ -32,12 +32,12 @@ export class LeadsService {
       return r.status != 200 ? null : r.body;
     });
   }
-  async deleteLead(id: number): Promise<Lead> {
+  async deleteLead(id: number): Promise<any> {
     return fetch(this.API_URL_LEADS + "/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(async (r) => (r.status != 204 ? null : await r.json()));
+    }).then(async (r) => (r.status != 204 ? null : r.body));
   }
 }

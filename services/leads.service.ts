@@ -29,7 +29,7 @@ export class LeadsService {
         "Content-Type": "application/json",
       },
     }).then(async (r) => {
-      return r.status != 201 ? null : await r.json();
+      return r.status != 200 ? null : r.body;
     });
   }
   async deleteLead(id: number): Promise<Lead> {

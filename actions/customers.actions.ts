@@ -11,3 +11,7 @@ export async function createCustomer(data: Partial<Customer>) {
   const service = new CustomersService();
   return await service.createCustomer(data);
 }
+export async function deleteCustomer(id: number) {
+  const service = new CustomersService();
+  return await service.deleteCustomer(id);
+}

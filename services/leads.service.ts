@@ -23,13 +23,14 @@ export class LeadsService {
   }
   async convertLead(customerId: number, leadId: number): Promise<any> {
     const url = `${this.API_URL_CONVERTION}/vincular?customerId=${customerId}&leadId=${leadId}`;
-
     return fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(async (r) => (r.status != 201 ? null : await r.json()));
+    }).then(async (r) => {
+      return r.status != 201 ? null : await r.json();
+    });
   }
   async deleteLead(id: number): Promise<Lead> {
     return fetch(this.API_URL_LEADS + "/" + id, {

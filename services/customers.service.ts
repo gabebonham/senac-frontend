@@ -20,4 +20,12 @@ export class CustomersService {
       body: JSON.stringify(data),
     }).then(async (r) => (r.status != 201 ? null : await r.json()));
   }
+  async deleteCustomer(id: number): Promise<Customer> {
+    return fetch(this.API_URL_CUSTOMERS + "/" + id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(async (r) => (r.status != 204 ? null : await r.json()));
+  }
 }

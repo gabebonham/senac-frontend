@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal, Trash } from "lucide-react";
+import ConvertLeadButton from "./ConvertLeadButton";
+import { Customer } from "./CustomerColumns";
 
 export type Lead = {
   id: number;
@@ -20,50 +22,45 @@ export type Lead = {
   telefone: string;
   perfilDeConsumo: number;
 };
-
-export const leadColumns: ColumnDef<Lead>[] = [
-  {
-    accessorKey: "nome",
-    header: "Nome",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "telefone",
-    header: "Telefone",
-  },
-  {
-    id: "convert",
-    header: "Converção",
-    cell: ({ row }) => {
-      const lead = row.original;
-
-      return (
-        <Button
-          onClick={() => convertLead(1, lead.id)}
-          className="cursor-pointer bg-sun hover:bg-transparent border-1 border-sun hover:text-sun"
-        >
-          Converter Lead
-        </Button>
-      );
+export function getLeadColumns({ customers }: { customers: Customer[] }) {
+  const leadColumns: ColumnDef<Lead>[] = [
+    {
+      accessorKey: "nome",
+      header: "Nome",
     },
-  },
-  {
-    id: "delete",
-    header: "Deletar",
-    cell: ({ row }) => {
-      const lead = row.original;
-
-      return (
-        <Button
-          onClick={() => deleteLead(lead.id)}
-          className="bg-transparent hover:bg-transparent cursor-pointer"
-        >
-          <Trash className="text-red-500" />
-        </Button>
-      );
+    {
+      accessorKey: "email",
+      header: "Email",
     },
-  },
-];
+    {
+      accessorKey: "telefone",
+      header: "Telefone",
+    },
+    {
+      id: "convert",
+      header: "Converção",
+      cell: ({ row }) => {
+        const lead = row.original;
+
+        return <ConvertLeadButton customers={customers} leadId={lead.id} />;
+      },
+    },
+    {
+      id: "delete",
+      header: "Deletar",
+      cell: ({ row }) => {
+        const lead = row.original;
+
+        return (
+          <Button
+            onClick={() => deleteLead(lead.id)}
+            className="bg-transparent hover:bg-transparent cursor-pointer"
+          >
+            <Trash className="text-red-500" />
+          </Button>
+        );
+      },
+    },
+  ];
+  return leadColumns;
+}

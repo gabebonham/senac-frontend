@@ -47,8 +47,6 @@ export default function FormCard() {
     };
 
     const customer = await createLead(data);
-    console.log("customer");
-    console.log(customer);
     if (customer) {
       setOptionId(undefined);
       toast("Dados enviados com sucesso.");
